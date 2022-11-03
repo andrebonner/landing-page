@@ -7,8 +7,10 @@ const HeroSection = () => {
       <article className="flex flex-col-reverse md:flex-row w-9/12 mx-auto py-20">
         <div className="w-100 md:w-1/2 p-5 flex flex-col items-center md:items-start justify-center">
           <span className="flex flex-col md:flex-row text-center md:text-left bg-white bg-opacity-40 px-2 py-1 my-5 rounded-full w-max">
-            <mark className="bg-transparent text-green-500">25% Save</mark>
-            <span className="text-white ">For First Month Trial Version</span>
+            <mark className="bg-transparent text-green-500">25% Save</mark>{" "}
+            <span className="text-white ml-0 md:ml-2">
+              For First Month Trial Version
+            </span>
           </span>
           <h1 className="text-5xl text-white leading-snug my-8 text-center md:text-left">
             TechZenth Is Awarded Best Management Tools In 2020.

@@ -142,8 +142,8 @@ const FeaturesSection = () => {
         </div>
       </article>{" "}
       <article className="w-100 bg-gradient-to-r from-blue-900 to-cyan-500 p-5">
-        <div className="flex flex-col md:flex-row">
-          <div className="w-auto md:w-1/2 my-3">
+        <div className="flex flex-col md:flex-row w-full">
+          <div className="w-auto md:w-1/2 my-3 mr-auto">
             <img src={website_builder} alt="" />
           </div>
           <div className="w-auto md:w-1/3 mr-auto my-auto">
@@ -173,14 +173,8 @@ const FeaturesSection = () => {
                 Well documented and structured code
               </li>
             </ul>
-            <div className="flex flex-row">
-              <div className="w-auto md:w-1/2 my-3"></div>
-            </div>
           </div>
         </div>
-      </article>
-      <article className="flex items-center">
-        <div className="w-full md:w-1/2"></div>
       </article>
     </section>
   );

@@ -10,7 +10,7 @@ const NavHeader = () => {
       <button
         data-collapse-toggle="navbar-default"
         type="button"
-        className="border border-white hover:bg-gray-600 rounded-full w-18 md:hidden"
+        className="border border-white rounded-full w-18 md:hidden"
       >
         <span className="sr-only">Open main menu</span>
         <Bars3Icon className="w-16 h-16 text-white" />
