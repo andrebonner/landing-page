@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import three_dots from "../assets/three-dots.svg";
 import brackets_angle_bold from "../assets/brackets-angle-bold.svg";
 import paper from "../assets/paper.svg";
@@ -12,12 +12,25 @@ import progressive_app from "../assets/progressive-app.svg";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
 
 const ClientsSection = () => {
+  const [accordion, setAccordion] = useState(0);
+
+  const toggleState = (index) => {
+    if (accordion !== index) {
+      setAccordion(index);
+    } else {
+      setAccordion(false);
+    }
+    console.log("accordion", accordion, "index", index);
+  };
+
   return (
     <section className="w-auto h-auto">
       <article className="flex flex-col md:w-9/12 mx-auto items-center my-3">
         <div className="w-11/12 mx-auto md:w-5/12 flex flex-col items-center my-10">
           <img src={three_dots} className="w-8 md:w-16 md:h-16" alt="" />
-          <h2 className="text-xl mt-3 text-center">How does It Work?</h2>
+          <h2 className="text-3xl mt-3 text-center font-semibold">
+            How does It Work?
+          </h2>
           <p className="text-gray-300 text-center">
             We show only the best websites, portfolios and landing pages built
             completely with passion, simplicity & creativity !
@@ -108,7 +121,7 @@ const ClientsSection = () => {
       <article className="w-100 bg-gradient-to-r from-blue-900 to-cyan-500 p-5">
         <div className="w-11/12 mx-auto md:w-5/12 flex flex-col items-center my-10">
           <img src={users} className="w-8 md:w-16 md:h-16" alt="" />
-          <h2 className="text-xl mt-3 text-white text-center">
+          <h2 className="text-3xl mt-3 text-white text-center font-semibold">
             What our customers say?
           </h2>
           <p className="text-white mt-3 text-center">
@@ -188,22 +201,35 @@ const ClientsSection = () => {
       <article className="flex flex-col md:w-9/12 mx-auto items-center my-3">
         <div className="w-11/12 mx-auto md:w-5/12 flex flex-col items-center my-10">
           <img src={chat} className="w-8 md:w-16 md:h-16" alt="" />
-          <h2 className="text-xl mt-3 text-center">Popular FAQs</h2>
+          <h2 className="text-3xl mt-3 text-center font-semibold">
+            Popular FAQs
+          </h2>
           <p className="text-gray-300 text-center">
             We show only the best websites, portfolios and landing pages built
             completely with passion, simplicity & creativity !
           </p>
         </div>
         <div className="w-11/12 md:w-8/12 mx-auto flex flex-col items-center my-2">
-          <div className="w-full flex flex-col border border-gray-200 my-2">
-            <div className="w-full flex bg-gray-200 p-3 items-center cursor-pointer">
+          <div className="w-full flex flex-col border border-gray-200 my-2 shadow-sm">
+            <div
+              className={
+                "w-full flex bg-gray-200 p-3 items-center cursor-pointer" +
+                (accordion === 0 ? " text-green-600" : "")
+              }
+              onClick={() => {
+                toggleState(0);
+              }}
+            >
               <h4 className="mr-auto font-semibold">
                 What does royalty free mean?
               </h4>
-              <PlusIcon className="w-4 h-4" />
-              <MinusIcon className="w-4 h-4 hidden" />
+              {accordion === 0 ? (
+                <PlusIcon className="w-4 h-4" />
+              ) : (
+                <MinusIcon className="w-4 h-4" />
+              )}
             </div>
-            <div className="w-full p-3">
+            <div className={"w-full p-3 " + (accordion === 0 ? "" : " hidden")}>
               <p className="text-gray-300">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -213,15 +239,26 @@ const ClientsSection = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col border border-gray-200 my-2">
-            <div className="w-full flex bg-gray-200 p-3 items-center cursor-pointer">
+          <div className="w-full flex flex-col border border-gray-200 my-2 shadow-sm">
+            <div
+              className={
+                "w-full flex bg-gray-200 p-3 items-center cursor-pointer" +
+                (accordion === 1 ? " text-green-600" : "")
+              }
+              onClick={() => {
+                toggleState(1);
+              }}
+            >
               <h4 className="mr-auto font-semibold">
                 What do you mean by item and end product?
               </h4>
-              <PlusIcon className="w-4 h-4 hidden" />
-              <MinusIcon className="w-4 h-4" />
+              {accordion === 1 ? (
+                <PlusIcon className="w-4 h-4" />
+              ) : (
+                <MinusIcon className="w-4 h-4" />
+              )}
             </div>
-            <div className="w-full p-3 hidden">
+            <div className={"w-full p-3 " + (accordion === 1 ? "" : " hidden")}>
               <p className="text-gray-300">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -231,15 +268,26 @@ const ClientsSection = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col border border-gray-200 my-2">
-            <div className="w-full flex bg-gray-200 p-3 items-center cursor-pointer">
+          <div className="w-full flex flex-col border border-gray-200 my-2 shadow-sm">
+            <div
+              className={
+                "w-full flex bg-gray-200 p-3 items-center cursor-pointer" +
+                (accordion === 2 ? " text-green-600" : "")
+              }
+              onClick={() => {
+                toggleState(2);
+              }}
+            >
               <h4 className="mr-auto font-semibold">
                 What are some examples of permitted end products?
               </h4>
-              <PlusIcon className="w-4 h-4 hidden" />
-              <MinusIcon className="w-4 h-4" />
+              {accordion === 2 ? (
+                <PlusIcon className="w-4 h-4" />
+              ) : (
+                <MinusIcon className="w-4 h-4" />
+              )}
             </div>
-            <div className="w-full p-3 hidden">
+            <div className={"w-full p-3 " + (accordion === 2 ? "" : " hidden")}>
               <p className="text-gray-300">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -249,15 +297,26 @@ const ClientsSection = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col border border-gray-200 my-2">
-            <div className="w-full flex bg-gray-200 p-3 items-center cursor-pointer">
+          <div className="w-full flex flex-col border border-gray-200 my-2 shadow-sm">
+            <div
+              className={
+                "w-full flex bg-gray-200 p-3 items-center cursor-pointer" +
+                (accordion === 3 ? " text-green-600" : "")
+              }
+              onClick={() => {
+                toggleState(3);
+              }}
+            >
               <h4 className="mr-auto font-semibold">
                 Am I allowed to modify the item I have purchased?
               </h4>
-              <PlusIcon className="w-4 h-4 hidden" />
-              <MinusIcon className="w-4 h-4" />
+              {accordion === 3 ? (
+                <PlusIcon className="w-4 h-4" />
+              ) : (
+                <MinusIcon className="w-4 h-4" />
+              )}
             </div>
-            <div className="w-full p-3 hidden">
+            <div className={"w-full p-3 " + (accordion === 3 ? "" : " hidden")}>
               <p className="text-gray-300">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -267,15 +326,26 @@ const ClientsSection = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-col border border-gray-200 my-2">
-            <div className="w-full flex bg-gray-200 p-3 items-center cursor-pointer">
+          <div className="w-full flex flex-col border border-gray-200 my-2 shadow-sm">
+            <div
+              className={
+                "w-full flex bg-gray-200 p-3 items-center cursor-pointer" +
+                (accordion === 4 ? " text-green-600" : "")
+              }
+              onClick={() => {
+                toggleState(4);
+              }}
+            >
               <h4 className="mr-auto font-semibold">
                 I'm not sure my use is covered. What should I do?
               </h4>
-              <PlusIcon className="w-4 h-4 hidden" />
-              <MinusIcon className="w-4 h-4" />
+              {accordion === 4 ? (
+                <PlusIcon className="w-4 h-4" />
+              ) : (
+                <MinusIcon className="w-4 h-4" />
+              )}
             </div>
-            <div className="w-full p-3 hidden">
+            <div className={"w-full p-3 " + (accordion === 4 ? "" : " hidden")}>
               <p className="text-gray-300">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy

@@ -5,6 +5,9 @@ import {
   ServicesSection,
   FeaturesSection,
   ClientsSection,
+  PriceSection,
+  DownloadSection,
+  SiteFooter,
 } from "./components";
 
 const App = () => {
@@ -16,7 +19,10 @@ const App = () => {
         <ServicesSection />
         <FeaturesSection />
         <ClientsSection />
+        <PriceSection />
+        <DownloadSection />
       </main>
+      <SiteFooter />
     </React.Fragment>
   );
 };

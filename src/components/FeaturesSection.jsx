@@ -21,7 +21,7 @@ const FeaturesSection = () => {
       <article className="flex flex-col w-9/12 mx-auto h-auto">
         <div className="w-auto md:w-5/12 flex flex-col items-center my-10 mx-auto">
           <img className="w-8 md:w-16 md:h-16" src={share_outline} alt="" />
-          <h2 className="text-3xl font-semibold">Top Features</h2>
+          <h2 className="text-3xl text-center font-semibold">Top Features</h2>
           <p className="text-gray-300 text-center my-4 leading-relaxed">
             We show only the best websites, portfolios and landing pages built
             completely with passion, simplicity &amp; creativity
@@ -148,7 +148,7 @@ const FeaturesSection = () => {
           </div>
           <div className="w-auto md:w-1/3 mr-auto my-auto">
             <img className="w-8 md:w-16 md:h-16" src={dot_circle} alt="" />
-            <h1 className="text-3xl text-white mt-4">
+            <h1 className="text-3xl text-center text-white mt-4">
               Key Features Of The Best Product
             </h1>
             <p className="text-gray-300 mt-4">
